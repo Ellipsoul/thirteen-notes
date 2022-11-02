@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import CreateNote from './CreateNote';
 import styles from './Notes.module.css';
 
 // Will contain the user's nots as well as a form to create new notes
@@ -27,12 +28,15 @@ export default async function NotesPage() {
 
   return (
     <div>
-      <h1>Notes</h1>
-      <div className={styles.grid}>
-        {notes?.map((note) => {
-          return <Note key={note.id} note={note} />;
-        })}
+      <div>
+        <h1>Notes</h1>
+        <div className={styles.grid}>
+          {notes?.map((note) => {
+            return <Note key={note.id} note={note} />;
+          })}
+        </div>
       </div>
+      <CreateNote />
     </div>
   );
 }
